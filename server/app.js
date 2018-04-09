@@ -22,7 +22,7 @@ app.use('/', express.static(webroot));
 // run the server
 server.listen(port, function() {
     console.log('hosting from ' + webroot);
-    console.log('ready to serve http://10.10.90.110:' + port + '/');
+    console.log('ready to serve http://10.10.90.78:' + port + '/');
 });
 
 app.post('/', function(req, res) {
