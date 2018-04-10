@@ -6,27 +6,28 @@ import sys
 # A0
 # SIG,NC,VCC,GND
 air_sensor = 0
-dist_sensor = 4
+ultrasonic_ranger = 4
 
-url = "http://10.10.90.78:3000"
+url = "http://RossMacbookPro.local:3000"
 
 while True:
     try:
-        if grovepi.analogRead(air_sensor) <= 500:
-            sensor_value = 'Good'
+        if grovepi.analogRead(air_sensor)<= 40:
+            sensor_value = 'good'
         else:
-            sensor_value = 'Bad'
-            
-        
-    #    dist_value = grovepi.analogRead(dist_sensor)
+            sensor_value = 'bad'
 
-     #   print(sensor_value)
+        print(sensor_value)
 
-        payload = { 'airQuality' : sensor_value}
+        dist_value = grovepi.ultrasonicRead(ultrasonic_ranger)
+
+        print(dist_value)
+
+        payload = { 'airQuality' : sensor_value, 'distance' : ultrasonic_ranger}
 
         requests.post(url, data=payload)
 
-        time.sleep(1)
+        time.sleep(0.1)
 
     except TypeError:
         print ("Error")
