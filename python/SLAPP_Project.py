@@ -1,29 +1,29 @@
 
-# NOTE: # Wait 2 minutes for the sensor to heat-up
 
 import time
+import requests
 import grovepi
+import sys
 
-# Connect the Grove Air Quality Sensor to analog port A0
+# A0
 # SIG,NC,VCC,GND
 air_sensor = 0
 
-grovepi.pinMode(air_sensor,"INPUT")
+url = "http://RossMacbookPro.local:3000"
 
 while True:
     try:
-        # Get sensor value
         sensor_value = grovepi.analogRead(air_sensor)
 
-        if sensor_value > 700:
-            print ("High pollution")
-        elif sensor_value > 300:
-            print ("Low pollution")
-        else:
-            print ("Air fresh")
+        print(sensor_value)
 
-        print("sensor_value =", sensor_value)
-        time.sleep(.5)
+        payload = { 'airQuality' : sensor_value }
 
+        requests.post(url, data=payload)
+
+        time.sleep(0.1)
+
+    except TypeError:
+        print ("Error")
     except IOError:
         print ("Error")
