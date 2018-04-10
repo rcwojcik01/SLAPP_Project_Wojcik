@@ -88,3 +88,14 @@ div {
 .card-content {
     padding: 5px;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ededed;
+    color: #b2b2b2;
+    text-align: center;
+    box-shadow: inset 0px 0px 5px #727272;
+}
