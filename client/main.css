@@ -1,0 +1,90 @@
+body {
+    background-color: #f9f9f9;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+div {
+    word-wrap: break-word;
+}
+.site-nav {
+    margin: 0;
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+    color: black;
+    border-bottom: solid 5px #7fb8ff;
+    box-shadow: 0px 0px 5px #727272
+}
+
+.brand {
+    margin: 0;
+    padding: 0 5px 0 5px;
+    display: inline-block;
+}
+
+.brand-description {
+    margin: 0;
+    padding: 0 5px 0 5px;
+    color: #b2b2b2;
+    display: inline-block;
+}
+
+.page-content {
+    margin: 0;
+    padding: 20px;
+}
+
+.map-box {
+    width: 50%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    padding: 5px;
+    background-color: white;
+}
+
+.filler-text {
+    color: #b2b2b2;
+    text-align: center
+}
+
+.border {
+    border: solid 5px #7fb8ff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #727272
+}
+
+.sensor-cards {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+/*    justify-content: space-between;*/
+}
+
+.sensor-info-card {
+    width: 600px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    background-color: #f9f9f9;
+
+}
+
+.card-title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+    border-bottom: solid 5px #7fb8ff;
+    background-color: white;
+}
+
+.card-content {
+    padding: 5px;
+}

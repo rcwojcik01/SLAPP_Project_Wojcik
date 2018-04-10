@@ -3,65 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>SLAPP_Project</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<!--
-   <div>
-       <ul>
-           <li id="air-quality"></li>
-           <li id="temperature"></li>
-           <li id="humidity"></li>
-           <li id="gyro"></li>
-       </ul>
-   </div>
--->
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    
-    <div id="main" class="containter">
-        <div class="jumbotron">
-          <h1>Hello, world!</h1>
-          <p>blah blah</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-        </div>
-<!--
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
-            </div>
-            <div class="panel-body">
-                Panel content
-            </div>
-        </div>
--->
-       <h4 id="air-quality"></h4>
+
+    <div class="site-nav">
+        <h1 class="brand">S.L.A.P.P</h1>
+        <h4 class="brand-description"> Shipping &amp Logistics Analytical Package Protection</h3>
     </div>
-   
-   
-   
+    
+    <div class="page-content">
+       <div class="map-box border">
+          <h3 class="filler-text">(map will be here)</h3>
+       </div>
+       <div class="sensor-cards">
+          
+           <div class="sensor-info-card border">
+              <div class="card-title">
+                  <h3 class="card-title-text">Air Quality</h3>
+              </div>
+              <div class="card-content">
+                  <h4 id="air-quality" class="sensor-data-text"></h4>
+              </div>
+           </div>
+           
+           <div class="sensor-info-card border">
+              <div class="card-title">
+                  <h3 class="card-title-text">Orientation</h3>
+              </div>
+              <div class="card-content">
+                  <h4 id="orientation" class="sensor-data-text"></h4>
+              </div>
+           </div>
+           
+           <div class="sensor-info-card border">
+              <div class="card-title">
+                  <h3 class="card-title-text">Vibration</h3>
+              </div>
+              <div class="card-content">
+                  <h4 id="vibration" class="sensor-data-text"></h4>
+              </div>
+           </div>
+           
+           <div class="sensor-info-card border">
+              <div class="card-title">
+                  <h3 class="card-title-text">Accelerometer</h3>
+              </div>
+              <div class="card-content">
+                  <h4 id="accelerometer" class="sensor-data-text"></h4>
+              </div>
+           </div>
+           
+       </div>
+    </div>
+  
     <script
       src="https://code.jquery.com/jquery-3.0.0.min.js"
       integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
       crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
 </body>
