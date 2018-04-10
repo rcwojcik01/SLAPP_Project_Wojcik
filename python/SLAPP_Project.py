@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+#
+# GrovePi Example for using the Grove Air Quality Sensor (http://www.seeedstudio.com/wiki/Grove_-_Air_Quality_Sensor)
+#
+# The GrovePi connects the Raspberry Pi and Grove sensors.  You can learn more about GrovePi here:  http://www.dexterindustries.com/GrovePi
+#
+# Have a question about this example?  Ask on the forums here:  http://forum.dexterindustries.com/c/grovepi
+#
 
 '''
 ## License
@@ -25,30 +33,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
-import time
-import requests
-import grovepi
-import sys
 
-# A0
+# NOTE: # Wait 2 minutes for the sensor to heat-up
+
+import time
+import grovepi
+
+# Connect the Grove Air Quality Sensor to analog port A0
 # SIG,NC,VCC,GND
 air_sensor = 0
 
-url = "http://10.10.90.78:3000"
+grovepi.pinMode(air_sensor,"INPUT")
 
 while True:
     try:
+        # Get sensor value
         sensor_value = grovepi.analogRead(air_sensor)
 
-        print(sensor_value)
+        if sensor_value > 700:
+            print ("High pollution")
+        elif sensor_value > 300:
+            print ("Low pollution")
+        else:
+            print ("Air fresh")
 
-        payload = { 'airQuality' : sensor_value }
+        print("sensor_value =", sensor_value)
+        time.sleep(.5)
 
-        requests.post(url, data=payload)
-
-        time.sleep(0.1)
-
-    except TypeError:
-        print ("Error")
     except IOError:
         print ("Error")
