@@ -7,6 +7,7 @@ import sys
 # SIG,NC,VCC,GND
 air_sensor = 0
 ultrasonic_ranger = 4
+temp_sensor = 1
 
 url = "http://RossMacbookPro.local:3000"
 
@@ -24,6 +25,9 @@ while True:
         dist_value = grovepi.ultrasonicRead(ultrasonic_ranger)
 
         print(dist_value)
+        
+        temp = grovepi.temp(temp_sensor, '1.1')
+        print("temp =", temp)
 
         payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value}
 
