@@ -12,22 +12,24 @@ url = "http://RossMacbookPro.local:3000"
 
 while True:
     try:
-        if grovepi.analogRead(air_sensor)<= 40:
-            sensor_value = 'good'
+        sensor_value = grovepi.analogRead(air_sensor)
+        if sensor_value <= 291:
+            air_quality = 'good'
         else:
-            sensor_value = 'bad'
+            air_quality = 'bad'
 
         print(sensor_value)
+        print(air_quality)
 
         dist_value = grovepi.ultrasonicRead(ultrasonic_ranger)
 
         print(dist_value)
 
-        payload = { 'airQuality' : sensor_value, 'distance' : ultrasonic_ranger}
+        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value}
 
         requests.post(url, data=payload)
 
-        time.sleep(0.1)
+        time.sleep(.5)
 
     except TypeError:
         print ("Error")
