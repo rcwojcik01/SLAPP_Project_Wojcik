@@ -28,6 +28,7 @@ while True:
         dist_value = grovepi.ultrasonicRead(ultrasonic_ranger)
 
         print(dist_value)
+"""
         
         # Temperature and Humidity Sensor
         
@@ -39,8 +40,9 @@ while True:
         light_value = grovepi.analogRead(light_sensor)
         print("light_value = %d" %(light_value))
         
+"""
         # Broadcast Payload
-        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value, 'tempValue' : temp_value, 'lightValue' : light_value}
+        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value""", 'tempValue' : temp_value, 'lightValue' : light_value"""}
 
         requests.post(url, data=payload)
 
