@@ -27,7 +27,7 @@ while True:
 
         requests.post(url, data=payload)
 
-        time.sleep(0.1)
+        time.sleep(1)
 
     except TypeError:
         print ("Error")
