@@ -21,13 +21,13 @@ while True:
         else:
             air_quality = 'bad'
 
-        print(sensor_value)
-        print(air_quality)
+            print(sensor_value)
+            print(air_quality)
         
         # Distance Sensor
         dist_value = grovepi.ultrasonicRead(ultrasonic_ranger)
 
-        print(dist_value)
+            print(dist_value)
 """
         
         # Temperature and Humidity Sensor
