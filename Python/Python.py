@@ -3,12 +3,15 @@ import requests
 import grovepi
 import sys
 
-# A0
+# Air Sensor goes into port A0
+# Distance Sensor goes into port D4
+# Temperature and Humidity sensor goes into port D8
+# Light Sensor goes into port A2?
 # SIG,NC,VCC,GND
 air_sensor = 0
 ultrasonic_ranger = 4
 dht11_port = 8
-light_sensor = 3
+light_sensor = 2
 
 url = "http://RossMacbookPro.local:3000"
 
@@ -39,8 +42,6 @@ while True:
         
         light_value = grovepi.analogRead(light_sensor)
         print("light_value = %d" %(light_value))
-
-        print("Done")
         
         # Broadcast Payload
         payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value, 'humi' : humi, 'temp' : temp, 'lightValue' : light_value}
