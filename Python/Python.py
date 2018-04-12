@@ -8,7 +8,7 @@ import sys
 air_sensor = 0
 ultrasonic_ranger = 4
 dht11_port = 8
-light_sensor = 2
+light_sensor = 3
 
 url = "http://RossMacbookPro.local:3000"
 
@@ -16,7 +16,7 @@ while True:
     try:
         # Air Sensor
         sensor_value = grovepi.analogRead(air_sensor)
-        if sensor_value <= 291:
+        if sensor_value <= 300:
             air_quality = 'good'
         else:
             air_quality = 'bad'
@@ -37,12 +37,13 @@ while True:
         
         # Light Sensor
         
-        #light_value = grovepi.analogRead(light_sensor)
-        #print("light_value = %d" %(light_value))
-        #""", 'tempValue' : temp_value, 'lightValue' : light_value"""
+        light_value = grovepi.analogRead(light_sensor)
+        print("light_value = %d" %(light_value))
+
+        print("Done")
         
         # Broadcast Payload
-        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value, 'humi' : humi, 'temp' : temp}
+        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value, 'humi' : humi, 'temp' : temp, 'lightValue' : light_value}
 
         requests.post(url, data=payload)
 
