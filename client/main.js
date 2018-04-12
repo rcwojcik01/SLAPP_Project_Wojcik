@@ -2,7 +2,9 @@ $(document).ready(function() {
     var socket = io.connect('localhost:3000'); // create connection
     socket.on('valuesReceived', function(data) {
         $('#air-quality').text(data.airQuality);
-        $('#orientation').text(data.distance);
+        $('#distance').text(data.distance);
+        $('#humidity').text(data.humi);
+        $('#temperature').text(data.temp);
 //        $('#orientation').text(data.orientation);
 //        $('#vibration').text(data.vibration);
 //        $('#accelerometer').text(data.accelerometer);
