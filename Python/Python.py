@@ -7,7 +7,7 @@ import sys
 # SIG,NC,VCC,GND
 air_sensor = 0
 ultrasonic_ranger = 4
-temp_sensor = 1
+dht11_port = 8
 light_sensor = 2
 
 url = "http://RossMacbookPro.local:3000"
@@ -31,8 +31,9 @@ while True:
 
         # Temperature and Humidity Sensor
         
-        temp_value = grovepi.temp(temp_sensor, model= '1.2')
-        print("temp =", temp_value)
+        [temp, humi] = grovepi.dht(dht11_port, 0)
+        print(temp, "C")
+        print(humi, "%")
         
         # Light Sensor
         
@@ -41,7 +42,7 @@ while True:
         #""", 'tempValue' : temp_value, 'lightValue' : light_value"""
         
         # Broadcast Payload
-        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value}
+        payload = { 'airQuality' : air_quality, 'airValue' : sensor_value, 'distance' : dist_value, 'humi' : humi, 'temp' : temp}
 
         requests.post(url, data=payload)
 
